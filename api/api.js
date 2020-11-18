@@ -40,8 +40,6 @@ app.post('/move', async(req, res) => {
     var args = ['gcode.py'];
     var python;
 
-    console.log(func);
-    console.log(Z);
     args.push(func);
     if (X != undefined)
         args.push(X);
@@ -67,7 +65,7 @@ app.get('/move', async(req, res) => {
         res.send(data.toString());
     });
     python.on('close', (code) => {
-        console.log(`closing with code ${code}`);
+        console.log(`Success : return with code ${code}`);
     })
 });
 
