@@ -91,6 +91,17 @@ class Gcode():
         for line in command.splitlines():       # For each line of the gcode command
             self.serialPort.write(line);        # Send line to the serial port
 
+def move_X(gcode, args):
+    if (len(args) == 3):
+        gcode.move_X(int(args[2]))
+
+def move_Y(gcode, args):
+    if (len(args) == 3):
+        gcode.move_Y(int(args[2]))
+
+def move_Z(gcode, args):
+    if (len(args) == 3):
+        gcode.move_Z(int(args[2]))
 
 def move_to(gcode, args):
     if (len(args) == 5):
@@ -116,7 +127,10 @@ if __name__=="__main__":
     args = sys.argv;
     functions = {
         'move_to':move_to,
-        'move':move_relative
+        'move':move_relative,
+        'move_X':move_X,
+        'move_Y':move_Y,
+        'move_Z':move_Z
     };
 
     if (len(args) > 1):
