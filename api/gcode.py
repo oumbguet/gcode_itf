@@ -25,13 +25,13 @@ class Gcode():
             str(val) +
             """\nG90\n"""
         )
-        print(gcode)
+        self.send_gcode(gcode)
 
     def reset_X(self):                          # Reset X-axis to 0
         gcode=(
             """G28 X0\n"""
         )
-        print(gcode)
+        self.send_gcode(gcode)
 
     # Y-Axis
     def move_Y(self, val):                      # Move Y-axis by val
@@ -40,13 +40,13 @@ class Gcode():
             str(val) +
             """\nG90\n"""
         )
-        print(gcode)
+        self.send_gcode(gcode)
 
     def reset_Y(self):                          # Reset Y-axis to 0
         gcode=(
             """G28 Y0\n"""
         )
-        print(gcode)
+        self.send_gcode(gcode)
 
     # Z-Axis
     def move_Z(self, val):                      # Move Z-axis by val
@@ -55,13 +55,13 @@ class Gcode():
             str(val) +
             """\nG90\n"""
         )
-        print(gcode)
+        self.send_gcode(gcode)
 
     def reset_Z(self):                          # Reset Z-axis to 0
         gcode=(
             """G28 Z0\n"""
         )
-        print(gcode)
+        self.send_gcode(gcode)
 
     # Move absolute
     def move_to(self, x, y, z):
@@ -71,14 +71,14 @@ class Gcode():
             """ Z""" + str(z) +
             """\nG90\n"""
         )
-        print(gcode)
+        self.send_gcode(gcode)
 
     # Speed
     def set_speed(self, val):                   # Set moving speedrate F
         gcode=(
             """G01 F""" + str(val) + """\n"""
         )
-        print(gcode)
+        self.send_gcode(gcode)
 
     # Serial port
     def init_port(self):
