@@ -12,14 +12,14 @@ var app = express();
 var secret = 'kr-uRYX#ZL]~@z~Y?B8KD{gHEL[<?';
 
 app.use(cors({
-    origin: 'https://localhost',
+    origin: '*',
     credentials: true,
     allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept"
 }));
 app.use(body.urlencoded({extended: false}));
 app.use(body.json());
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://localhost");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Credentials", true);
     next();
@@ -51,6 +51,18 @@ app.post('/move', async(req, res) => {
         args.push(Z);
     console.log(args);
     python = spawn('python', args);
+    python.stdout.on('data', function (data) {
+        res.send(data.toString());
+    });
+    python.on('close', (code) => {
+        console.log(`closing with code ${code}`);
+    })
+});
+
+app.get('/move', async(req, res) => {
+    var python;
+
+    python = spawn('python', ['gcode.py', 'get']);
     python.stdout.on('data', function (data) {
         res.send(data.toString());
     });

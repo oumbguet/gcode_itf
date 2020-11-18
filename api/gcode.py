@@ -16,7 +16,7 @@ class Gcode():
     speed = 6000.0;
 
     def __init__(self):
-        self.serialPort=None
+        self.serialPort = None
 
     # X-Axis
     def move_X(self, val):                      # Move X-axis by val

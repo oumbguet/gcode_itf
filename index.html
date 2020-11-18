@@ -20,34 +20,54 @@
         <div class="card offset-card">
             <div class="buttons">
                 <div class="controls">
-                    <button><</button>
-                    <input type="number" name="offset-left" id="offset-left">
+                    <button class="offset-btn" axis="X" direction="left"><</button>
+                    <input type="number" name="offset-left" id="offset-X-left" value="1">
                     X
-                    <input type="number" name="offset-right" id="offset-right">
-                    <button>></button>
+                    <input type="number" name="offset-right" id="offset-X-right" value="1">
+                    <button class="offset-btn" axis="X" direction="right">></button>
                 </div>
                 <div class="controls">
-                    <button><</button>
-                    <input type="number" name="offset-left" id="offset-left">
+                    <button class="offset-btn" axis="Y" direction="left"><</button>
+                    <input type="number" name="offset-left" id="offset-Y-left" value="1">
                     Y
-                    <input type="number" name="offset-right" id="offset-right">
-                    <button>></button>
+                    <input type="number" name="offset-right" id="offset-Y-right" value="1">
+                    <button class="offset-btn" axis="Y" direction="right">></button>
                 </div>
                 <div class="controls">
-                    <button><</button>
-                    <input type="number" name="offset-left" id="offset-left">
+                    <button class="offset-btn" axis="Z" direction="left"><</button>
+                    <input type="number" name="offset-left" id="offset-Z-left" value="1">
                     Z
-                    <input type="number" name="offset-right" id="offset-right">
-                    <button>></button>
+                    <input type="number" name="offset-right" id="offset-Z-right" value="1">
+                    <button class="offset-btn" axis="Z" direction="right">></button>
                 </div>
             </div>
-            <div class="infos"></div>
+            <div class="infos">
+                <p class="info_X">X: ?</p>
+                <p class="info_Y">Y: ?</p>
+                <p class="info_Z">Z: ?</p>
+            </div>
         </div>
         <div class="card coord-card">
-            allo
+            <p>Absolute coordinates :</p>
+            <div class="abs-input">
+                <input type="number" value="0">
+                <input type="number" value="0">
+                <input type="number" value="0">
+            </div>
+            <button class="send-btn">Send coords</button>
+            <p>Relative coordinates :</p>
+            <div class="abs-input">
+                <input type="number" value="0">
+                <input type="number" value="0">
+                <input type="number" value="0">
+            </div>
+            <button class="send-btn">Send coords</button>
         </div>
     </div>
-    <!-- <button class="plus">Plus</button>
-    <button class="minus">Minus</button> -->
+    <footer>
+        <div class="footer">
+            <div class="copy">2020 &copy; GController</div>
+        </div>
+    </footer>
 </body>
 </html>
