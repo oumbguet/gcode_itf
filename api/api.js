@@ -32,11 +32,27 @@ var httpServer = http.createServer(app);
 // MOVEMENT //
 //////////////
 
-app.get('/move', async(req, res) => {
-    const python = spawn('python', ['gcode.py']);
+app.post('/move', async(req, res) => {
+    var func = req.body.func;
+    var X = req.body.X;
+    var Y = req.body.Y;
+    var Z = req.body.Z;
+    var args = ['gcode.py'];
+    var python;
 
+    console.log(func);
+    console.log(Z);
+    args.push(func);
+    if (X != undefined)
+        args.push(X);
+    if (Y != undefined)
+        args.push(Y);
+    if (Z != undefined)
+        args.push(Z);
+    console.log(args);
+    python = spawn('python', args);
     python.stdout.on('data', function (data) {
-        console.log(data.toString());
+        res.send(data.toString());
     });
     python.on('close', (code) => {
         console.log(`closing with code ${code}`);
