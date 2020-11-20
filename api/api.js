@@ -65,7 +65,7 @@ app.get('/move', async(req, res) => {
         res.send(data.toString());
     });
     python.on('close', (code) => {
-        console.log(`Success : return with code ${code}`);
+        console.log(`Return with code ${code}`);
     })
 });
 

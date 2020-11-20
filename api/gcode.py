@@ -82,7 +82,10 @@ class Gcode():
 
     # Serial port
     def init_port(self):
-        self.serialPort = serial.Serial("/dev/ttyACM0")
+        if os.name == 'nt':
+            self.serialPort = serial.Serial("COM4", 115200, 8, 'N', 1, timeout=0.1)
+        else:
+            self.serialPort = serial.Serial("/dev/ttyACM0", 115200, 8, 'N', 1, timeout=0.1)
 
     def send_gcode(self, command):              # Send gcode on serial port
         if (self.serialPort):                   # If serial port already exists
